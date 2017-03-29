@@ -21,7 +21,6 @@ namespace Guest_app.Handler
         public void CreateGuest()
         {
             Guest temp_guest = new Guest(guestViewModel.Id, guestViewModel.Name, guestViewModel.Address);
-
             GuestSingleton.Instance.AddGuest(temp_guest);
         }
 

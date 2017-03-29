@@ -20,5 +20,10 @@ namespace Guest_app.Model
             this._name = name;
             this._address = address;
         }
+
+        public override string ToString()
+        {
+            return _name;
+        }
     }
 }

@@ -9,7 +9,6 @@ using System.Windows.Input;
 using Guest_app.Common;
 using System.ComponentModel;
 using Guest_app.Handler;
-using Guest_app.Model;
 
 namespace Guest_app.ViewModel
 {
@@ -20,11 +19,11 @@ namespace Guest_app.ViewModel
         public ICommand CreateGuestCommand { get; set; }
         public ICommand DeleteGuestCommand { get; set; }
 
-        private ObservableCollection<Guest> eventCollection;
-        public ObservableCollection<Guest> EventCollection
+        private ObservableCollection<Guest> guestCollection;
+        public ObservableCollection<Guest> GuestCollection
         {
-            get { return eventCollection; }
-            set { eventCollection = value; }
+            get { return guestCollection; }
+            set { guestCollection = value; }
         }
 
         private Guest selectedGuest;
@@ -74,8 +73,9 @@ namespace Guest_app.ViewModel
 
         public GuestViewModel()
         {
-            eventCollection = new ObservableCollection<Guest>();
-            eventCollection.Add(new Guest(1, "john", "ggggg"));
+            guestCollection = new ObservableCollection<Guest>();
+            guestCollection = GuestSingleton.Instance.GuestCollection;
+
             handler = new GuestHandler(this);
             CreateGuestCommand = new RelayCommand(handler.CreateGuest, null);
             DeleteGuestCommand = new RelayCommand(handler.DeleteGuest, null);

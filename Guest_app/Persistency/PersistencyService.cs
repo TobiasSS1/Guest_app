@@ -13,7 +13,7 @@ namespace Guest_app.Persistency
     class PersistencyService
     {
 
-        const string serverurl = "http://Guestmakerwebapi.azurewebsites.net";
+        const string serverurl = "http://gaestwebapi.azurewebsites.net";
 
         /// <summary>
         /// Saves an Guest to the Db.
