@@ -19,7 +19,6 @@ namespace Guest_app.Model
 
         public ObservableCollection<Guest> GuestCollection { get; set; }
 
-
         private GuestSingleton()
         {
             GuestCollection = new ObservableCollection<Guest>();

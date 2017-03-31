@@ -37,7 +37,6 @@ namespace Guest_app.ViewModel
             }
         }
 
-
         private int id;
         public int Id
         {

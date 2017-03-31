@@ -12,7 +12,6 @@ namespace Guest_app.Persistency
 {
     class PersistencyService
     {
-
         const string serverurl = "http://gaestwebapi.azurewebsites.net";
 
         /// <summary>
@@ -48,19 +47,13 @@ namespace Guest_app.Persistency
         /// <returns></returns>
         public static ObservableCollection<Guest> LoadGuestsFromJsonAsync()
         {
-            //vi kalder Clienthandler
-            HttpClientHandler handler = new HttpClientHandler();
             HttpClient Client = new HttpClient();
-            handler.UseDefaultCredentials = true;
-
             ObservableCollection<Guest> Temp_list = new ObservableCollection<Guest>();
 
-            using (var client = new HttpClient(handler))
+            using (var client = new HttpClient())
             {
                 Client.DefaultRequestHeaders.Clear();
-
                 Client.BaseAddress = new Uri(serverurl);
-
                 Client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
                 try
@@ -80,7 +73,6 @@ namespace Guest_app.Persistency
                 return Temp_list;
             }
         }
-
 
         /// <summary>
         /// Deletes the select guest form the db.
