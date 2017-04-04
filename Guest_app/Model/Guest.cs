@@ -8,22 +8,22 @@ namespace Guest_app.Model
 {
     public class Guest
     {
-        public int _id { get; set; }
+        public int Guest_No { get; set; }
 
-        public string _name { get; set; }
+        public string name { get; set; }
 
-        public string _address { get; set; }
+        public string address { get; set; }
 
         public Guest(int id, string name, string address)
         {
-            this._id = id;
-            this._name = name;
-            this._address = address;
+            this.Guest_No = id;
+            this.name = name;
+            this.address = address;
         }
 
         public override string ToString()
         {
-            return _name;
+            return "ID: "+ this.Guest_No + "Navn: "+ this.name + "addresse: " + this.address;
         }
     }
 }

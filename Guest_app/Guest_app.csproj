@@ -101,6 +101,7 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\Guest.cs" />
+    <Compile Include="Model\GuestBookings.cs" />
     <Compile Include="Model\GuestCatalogSingleton.cs" />
     <Compile Include="Persistency\PersistencyService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

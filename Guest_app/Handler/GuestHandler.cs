@@ -26,8 +26,14 @@ namespace Guest_app.Handler
 
         public void DeleteGuest()
         {
-            GuestSingleton.Instance.RemoveGuest(guestViewModel.SelectedGuest);
             PersistencyService.DeleteGuest(guestViewModel.SelectedGuest);
+            GuestSingleton.Instance.RemoveGuest(guestViewModel.SelectedGuest);
+        }
+
+        public void UpdateGuest()
+        {
+            Guest updatedGuest = guestViewModel.SelectedGuest;
+            PersistencyService.UpdateSelectedGuest(updatedGuest);
         }
     }
 }

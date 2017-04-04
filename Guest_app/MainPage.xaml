@@ -12,10 +12,26 @@
         <Grid.DataContext>
             <ViewModel:GuestViewModel/>
         </Grid.DataContext>
-        <ListView x:Name="listView" HorizontalAlignment="Left" Height="239" Margin="150,355,0,0" VerticalAlignment="Top" Width="205" ItemsSource="{Binding GuestCollection, Mode=TwoWay}"/>
-        <Button x:Name="button" Content="Opret gæst" HorizontalAlignment="Left" Margin="151,638,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="button1" Content="Slet gæst" HorizontalAlignment="Left" Margin="273,638,0,0" VerticalAlignment="Top"/>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="151,251,0,0" TextWrapping="Wrap" Text="Alle Gæster" VerticalAlignment="Top" FontSize="30"/>
+        <ListView x:Name="listView" HorizontalAlignment="Left" Height="512" Margin="47,76,0,0" VerticalAlignment="Top" Width="256" SelectedItem="{Binding SelectedGuest, Mode=TwoWay}" ItemsSource="{Binding GuestCollection}"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="47,31,0,0" TextWrapping="Wrap" Text="Alle Gæster" VerticalAlignment="Top" FontSize="30"/>
 
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="1092,117,0,0" TextWrapping="Wrap" Text="{Binding Name, Mode=TwoWay}" VerticalAlignment="Top" Width="112"/>
+        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="1023,117,0,0" TextWrapping="Wrap" Text="Navn:" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Margin="1026,157,0,0" TextWrapping="Wrap" Text="Adresse:" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBox2" HorizontalAlignment="Left" Margin="1092,157,0,0" TextWrapping="Wrap" Text="{Binding Address, Mode=TwoWay}" VerticalAlignment="Top" Width="112"/>
+        <Button x:Name="button2" Content="Opret gæst" HorizontalAlignment="Left" Margin="1023,209,0,0" VerticalAlignment="Top" Command="{Binding CreateGuestCommand}" Width="133"/>
+        <TextBlock x:Name="textBlock3" HorizontalAlignment="Left" Margin="1023,76,0,0" TextWrapping="Wrap" Text="Gæst Nr:" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBox3" HorizontalAlignment="Left" Margin="1092,76,0,0" TextWrapping="Wrap" Text="{Binding Id, Mode=TwoWay}" VerticalAlignment="Top" Width="112"/>
+        <TextBlock x:Name="textBlock4" HorizontalAlignment="Left" Margin="1023,31,0,0" TextWrapping="Wrap" Text="Opret ny Gæst:" VerticalAlignment="Top" FontSize="20"/>
+
+        <Button x:Name="button3" Content="Updater Gæst" HorizontalAlignment="Left" Margin="1026,469,0,0" VerticalAlignment="Top" Width="178" Command="{Binding UpdateGuestCommand}"/>
+        <TextBlock x:Name="textBlock5" HorizontalAlignment="Left" Margin="1026,280,0,0" TextWrapping="Wrap" Text="Opdater Valgt Gæst:" VerticalAlignment="Top" FontSize="20"/>
+        <TextBlock x:Name="textBlock6" HorizontalAlignment="Left" Margin="1026,339,0,0" TextWrapping="Wrap" Text="Navn:" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock7" HorizontalAlignment="Left" Margin="1026,380,0,0" TextWrapping="Wrap" Text="Adresse:" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBox4" HorizontalAlignment="Left" Margin="1092,339,0,0" TextWrapping="Wrap" Text="{Binding SelectedGuest.name, Mode=TwoWay}" VerticalAlignment="Top" Width="112"/>
+        <TextBox x:Name="textBox5" HorizontalAlignment="Left" Margin="1026,405,0,0" TextWrapping="Wrap" Text="{Binding SelectedGuest.address, Mode=TwoWay}" VerticalAlignment="Top" Width="178" Height="59"/>
+        <TextBlock x:Name="textBlock8" HorizontalAlignment="Left" Margin="455,31,0,0" TextWrapping="Wrap" Text="Bookinger:" VerticalAlignment="Top" FontSize="30"/>
+        <ListView x:Name="listView1" HorizontalAlignment="Left" Height="512" Margin="402,87,0,0" VerticalAlignment="Top" Width="249" ItemsSource="{Binding Guestbookingcollection}"/>
+        <Button x:Name="button" Content="Slet Gæst" HorizontalAlignment="Left" Margin="1026,518,0,0" VerticalAlignment="Top" Width="178" Command="{Binding DeleteGuestCommand}"/>
     </Grid>
 </Page>

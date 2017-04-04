@@ -18,12 +18,20 @@ namespace Guest_app.ViewModel
 
         public ICommand CreateGuestCommand { get; set; }
         public ICommand DeleteGuestCommand { get; set; }
+        public ICommand UpdateGuestCommand { get; set; }
 
         private ObservableCollection<Guest> guestCollection;
         public ObservableCollection<Guest> GuestCollection
         {
             get { return guestCollection; }
             set { guestCollection = value; }
+        }
+
+        private ObservableCollection<GuestBookings> guestbookingcollection;
+        public ObservableCollection<GuestBookings> Guestbookingcollection
+        {
+            get { return guestbookingcollection; }
+            set { guestbookingcollection = value; }
         }
 
         private Guest selectedGuest;
@@ -75,9 +83,13 @@ namespace Guest_app.ViewModel
             guestCollection = new ObservableCollection<Guest>();
             guestCollection = GuestSingleton.Instance.GuestCollection;
 
+            guestbookingcollection = new ObservableCollection<GuestBookings>();
+            guestbookingcollection = GuestSingleton.Instance.Temp_list;
+
             handler = new GuestHandler(this);
             CreateGuestCommand = new RelayCommand(handler.CreateGuest, null);
             DeleteGuestCommand = new RelayCommand(handler.DeleteGuest, null);
+            UpdateGuestCommand = new RelayCommand(handler.UpdateGuest, null);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
