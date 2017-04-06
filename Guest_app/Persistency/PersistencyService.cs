@@ -21,7 +21,7 @@ namespace Guest_app.Persistency
             HttpClient Client = new HttpClient();
             handler.UseDefaultCredentials = true;
 
-            
+            //test af continous integration
             using (var client = new HttpClient(handler))
             {
                 client.BaseAddress = new Uri(serverurl);
