@@ -13,10 +13,10 @@ namespace UnitTestProjectGuest
         [TestMethod]
         public void TestMethod1()
         {
-            ObservableCollection<Guest> test = new ObservableCollection<Guest>();
-         
-            Assert.AreEqual(test,PersistencyService.LoadGuestsFromJsonAsync());
-            Assert.
+            //ObservableCollection<Guest> test = new ObservableCollection<Guest>();
+            //ObservableCollection<Guest> test2 = new ObservableCollection<Guest>();
+            //Assert.AreEqual(test,test2);
+            
         }
     }
 }
