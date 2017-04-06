@@ -21,6 +21,7 @@ namespace Guest_app.Persistency
             HttpClient Client = new HttpClient();
             handler.UseDefaultCredentials = true;
 
+            //putter en gæst ind
             using (var client = new HttpClient(handler))
             {
                 client.BaseAddress = new Uri(serverurl);
