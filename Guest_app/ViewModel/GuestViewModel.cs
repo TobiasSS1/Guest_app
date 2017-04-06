@@ -9,11 +9,14 @@ using System.Windows.Input;
 using Guest_app.Common;
 using System.ComponentModel;
 using Guest_app.Handler;
+using Windows.UI.Popups;
 
 namespace Guest_app.ViewModel
 {
     class GuestViewModel : INotifyPropertyChanged
     {
+        #region properties
+
         public GuestHandler handler;
 
         public ICommand CreateGuestCommand { get; set; }
@@ -41,6 +44,7 @@ namespace Guest_app.ViewModel
             set
             {
                 selectedGuest = value;
+
                 OnPropertyChanged(nameof(SelectedGuest));
             }
         }
@@ -78,18 +82,25 @@ namespace Guest_app.ViewModel
             }
         }
 
+        #endregion
+
         public GuestViewModel()
         {
             guestCollection = new ObservableCollection<Guest>();
             guestCollection = GuestSingleton.Instance.GuestCollection;
 
+            this.id = GuestCollection.Last<Guest>().Guest_No + 1;
+
             guestbookingcollection = new ObservableCollection<GuestBookings>();
             guestbookingcollection = GuestSingleton.Instance.Temp_list;
+            Func<bool> test = () => selectedGuest != null;
 
             handler = new GuestHandler(this);
             CreateGuestCommand = new RelayCommand(handler.CreateGuest, null);
-            DeleteGuestCommand = new RelayCommand(handler.DeleteGuest, null);
-            UpdateGuestCommand = new RelayCommand(handler.UpdateGuest, null);
+            DeleteGuestCommand = new RelayCommand(handler.DeleteGuest, test);
+            UpdateGuestCommand = new RelayCommand(handler.UpdateGuest, test);
+
+            HelperClass.msg("VELKOMMEN TIL Gæst Admin Programmet");
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

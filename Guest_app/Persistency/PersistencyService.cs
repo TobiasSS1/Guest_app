@@ -1,4 +1,5 @@
-﻿using Guest_app.Model;
+﻿using Guest_app.Common;
+using Guest_app.Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Guest_app.Persistency
 {
-    class PersistencyService
+   public class PersistencyService
     {
         const string serverurl = "http://gaestwebapi.azurewebsites.net";
 
@@ -68,6 +69,7 @@ namespace Guest_app.Persistency
         public static ObservableCollection<GuestBookings> LoadGuestsBookingsFromJsonAsync()
         {
             HttpClient Client = new HttpClient();
+
             ObservableCollection<GuestBookings> Temp_list = new ObservableCollection<GuestBookings>();
 
             using (var client = new HttpClient())
@@ -83,6 +85,7 @@ namespace Guest_app.Persistency
                     if (responce.IsSuccessStatusCode)
                     {
                         Temp_list = responce.Content.ReadAsAsync<ObservableCollection<GuestBookings>>().Result;
+
                     }
                 }
                 catch (Exception)
@@ -90,7 +93,7 @@ namespace Guest_app.Persistency
                     Temp_list = null;
                 }
 
-                return Temp_list;
+                return Temp_list; //= list as ObservableCollection<GuestBookings>;
             }
         }
 
@@ -125,9 +128,11 @@ namespace Guest_app.Persistency
                 try
                 {
                     var responce = client.PutAsJsonAsync<Guest>("Api/Guests/" + GuestToUpdate.Guest_No, GuestToUpdate).Result;
+                    HelperClass.msg("Gæstens data er opdateret");
                 }
                 catch (Exception)
                 {
+                    HelperClass.msg("Der er sket en fejl");
                     throw;
                 }
             }

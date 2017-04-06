@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Guest_app.Persistency;
+using Windows.UI.Popups;
+using Guest_app.Common;
 
 namespace Guest_app.Handler
 {
@@ -20,13 +22,19 @@ namespace Guest_app.Handler
 
         public void CreateGuest()
         {
-            Guest temp_guest = new Guest(guestViewModel.Id, guestViewModel.Name, guestViewModel.Address);
-            GuestSingleton.Instance.AddGuest(temp_guest);
+            if (guestViewModel.Id != 0 && guestViewModel.Name != null && guestViewModel.Address != null)
+            {
+                Guest temp_guest = new Guest(guestViewModel.Id, guestViewModel.Name, guestViewModel.Address);
+                GuestSingleton.Instance.AddGuest(temp_guest);
+            }
+            else
+            {
+                HelperClass.msg("Et felt er ikke udfyldt");
+            }
         }
 
         public void DeleteGuest()
         {
-            PersistencyService.DeleteGuest(guestViewModel.SelectedGuest);
             GuestSingleton.Instance.RemoveGuest(guestViewModel.SelectedGuest);
         }
 
@@ -34,6 +42,8 @@ namespace Guest_app.Handler
         {
             Guest updatedGuest = guestViewModel.SelectedGuest;
             PersistencyService.UpdateSelectedGuest(updatedGuest);
+            PersistencyService.LoadGuestsFromJsonAsync();
+
         }
     }
 }

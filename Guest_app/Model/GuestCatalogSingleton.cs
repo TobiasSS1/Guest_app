@@ -25,6 +25,7 @@ namespace Guest_app.Model
         public delegate void JsonLoad();
         
         #endregion
+
         private GuestSingleton()
         {
             GuestCollection = new ObservableCollection<Guest>();
@@ -38,8 +39,11 @@ namespace Guest_app.Model
         #region Methods
         public void AddGuest(Guest GuestTilAdd)
         {
-            GuestCollection.Add(GuestTilAdd);
-            PersistencyService.SaveGuestAsJsonAsync(GuestTilAdd);
+            if (GuestTilAdd.Guest_No != 0 && GuestTilAdd.name != "" && GuestTilAdd.address != "")
+            {
+                GuestCollection.Add(GuestTilAdd);
+                PersistencyService.SaveGuestAsJsonAsync(GuestTilAdd);
+            }            
         }
 
         public void RemoveGuest(Guest GuestTilRemove)
