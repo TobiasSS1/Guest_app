@@ -13,6 +13,7 @@ namespace Guest_app.Handler
 {
     class GuestHandler
     {
+        //test om contionous integration stopper med at pushe ved en fejl.
         public GuestViewModel guestViewModel { get; set; }
 
         public GuestHandler(GuestViewModel evm)
