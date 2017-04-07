@@ -28,6 +28,7 @@ namespace Guest_app.Model
 
         private GuestSingleton()
         {
+            //pushede documentationen
             GuestCollection = new ObservableCollection<Guest>();
             GuestCollection.Clear();
 
