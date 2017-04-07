@@ -24,7 +24,7 @@
         <TextBox x:Name="textBox3" HorizontalAlignment="Left" Margin="1092,76,0,0" TextWrapping="Wrap" Text="{Binding Id, Mode=TwoWay}" VerticalAlignment="Top" Width="112"/>
         <TextBlock x:Name="textBlock4" HorizontalAlignment="Left" Margin="1023,31,0,0" TextWrapping="Wrap" Text="Opret ny Gæst:" VerticalAlignment="Top" FontSize="20"/>
 
-        <Button x:Name="button3" Content="Updater Gæst" HorizontalAlignment="Left" Margin="1026,469,0,0" VerticalAlignment="Top" Width="178" Command="{Binding UpdateGuestCommand}"/>
+        <Button x:Name="button3" Content="Opdater Gæst" HorizontalAlignment="Left" Margin="1026,469,0,0" VerticalAlignment="Top" Width="178" Command="{Binding UpdateGuestCommand}"/>
         <TextBlock x:Name="textBlock5" HorizontalAlignment="Left" Margin="1026,280,0,0" TextWrapping="Wrap" Text="Opdater Valgt Gæst:" VerticalAlignment="Top" FontSize="20"/>
         <TextBlock x:Name="textBlock6" HorizontalAlignment="Left" Margin="1026,339,0,0" TextWrapping="Wrap" Text="Navn:" VerticalAlignment="Top"/>
         <TextBlock x:Name="textBlock7" HorizontalAlignment="Left" Margin="1026,380,0,0" TextWrapping="Wrap" Text="Adresse:" VerticalAlignment="Top"/>
