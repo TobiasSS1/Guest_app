@@ -16,6 +16,4 @@ namespace Guest_app.Model
             return "Navn: " + Name + " Bookinger: " + BOOKINGS;
         }
     }
-
-
 }

@@ -38,6 +38,7 @@ namespace Guest_app.Model
         }
 
         #region Methods
+
         public void AddGuest(Guest GuestTilAdd)
         {
             if (GuestTilAdd.Guest_No != 0 && GuestTilAdd.name != "" && GuestTilAdd.address != "")

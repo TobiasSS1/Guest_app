@@ -96,6 +96,7 @@ namespace Guest_app.ViewModel
             Func<bool> test = () => selectedGuest != null;
 
             handler = new GuestHandler(this);
+
             CreateGuestCommand = new RelayCommand(handler.CreateGuest, null);
             DeleteGuestCommand = new RelayCommand(handler.DeleteGuest, test);
             UpdateGuestCommand = new RelayCommand(handler.UpdateGuest, test);
